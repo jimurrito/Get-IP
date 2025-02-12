@@ -1,3 +1,4 @@
+#!/bin/sh
 # Install pre-requisite packages.
 sudo apt-get install -y wget
 
