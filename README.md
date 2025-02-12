@@ -5,7 +5,9 @@ Simple server that provides the public IP back to the sending client. Written fu
 - Small compute foot print.
 - No install required (Pwsh core required for Linux)
 
-## Install powershell core in Linux (Debian-based)
+<br><br>
+
+# Install powershell core in Linux (Debian-based)
 
 ### Automated
 ```bash
@@ -32,7 +34,9 @@ sudo apt-get install -f
 rm powershell_7.5.0-1.deb_amd64.deb
 ```
 
-## Start server-side
+<br><br>
+
+# Start server-side
 **From bash**
 ```bash
 # Setup looping server on port '8080'
@@ -59,7 +63,9 @@ pwsh get-ip-svr.ps1
 # [2025-02-12T00:35:17.177+00:00] Listening on port 8080... Press 'q' to quit.
 ```
 
-## Start Client-side
+<br><br>
+
+# Start Client-side
 **From bash**
 ```bash
 # Connect to the server @ 127.0.0.1:8080
@@ -76,7 +82,27 @@ get-ip-client.ps1
 get-ip-svr.ps1 -Target 192.168.0.4 -Port 6900
 ```
 
-## Parameters
+<br><br>
+
+# Using `Get-IP-*.ps1`
+```bash
+# Server side
+pwsh get-ip-svr.ps1
+# Output:
+# [2025-02-12T00:44:14.453+00:00] Listening on port 8080... Press 'q' to quit.
+
+# Client side
+get-ip-client.ps1 # => 127.0.0.1:8080
+# Response:
+# ::ffff:127.0.0.1
+```
+> If you connect over a network or the internet, the IP response will reflect the clients IP.
+>  - Connecting from internal network => Private IP
+>  - Connecting from public internet => Public IP
+
+<br><br>
+
+# Parameters
 
 ### `get-ip-svr.ps1`
 
@@ -93,6 +119,7 @@ get-ip-svr.ps1 -Target 192.168.0.4 -Port 6900
 | `-Target` | System.Net.IPAddress | 127.0.0.1 | The target server hosting running the `get-ip-svr.ps1` script. |
 | `-Port` | Integer | 8080 | The Layer4 port the socket client will connect to. |
 
+<br><br>
 
 # Any issues?
 Open an issue on this github repo!
