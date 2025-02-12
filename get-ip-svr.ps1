@@ -1,9 +1,7 @@
 param(
-    [switch]$SingleRun
+    [switch]$SingleRun,
+    [int]$port=8080
 )
-
-# Define the port to listen on
-$port = 8080
 
 # Create a new TCP listener
 $listener = [System.Net.Sockets.TcpListener]::Create($port)
